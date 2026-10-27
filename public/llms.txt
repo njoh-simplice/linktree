@@ -1,0 +1,11 @@
+# Njoh Simplice Links
+
+> A single-page link hub (linktree) for Njoh Simplice, gathering links to their profiles and projects in one place.
+
+## Pages
+
+- [Home](https://njoh-simplice.github.io/linktree/): The main page listing all links.
+
+## Optional
+
+- [Sitemap](https://njoh-simplice.github.io/linktree/sitemap.xml)
