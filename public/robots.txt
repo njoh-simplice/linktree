@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://njoh-simplice.github.io/linktree/sitemap.xml
+Sitemap: https://links.heysimplice.com/sitemap.xml

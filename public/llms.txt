@@ -4,8 +4,8 @@
 
 ## Pages
 
-- [Home](https://njoh-simplice.github.io/linktree/): The main page listing all links.
+- [Home](https://links.heysimplice.com/): The main page listing all links.
 
 ## Optional
 
-- [Sitemap](https://njoh-simplice.github.io/linktree/sitemap.xml)
+- [Sitemap](https://links.heysimplice.com/sitemap.xml)
