@@ -1,0 +1,94 @@
+/* Test page: one-page navigation. Loaded after main.css and overrides it. */
+
+/* The page scrolls between full-screen sections instead of showing one fixed background. */
+html.test {
+  min-height: 0;
+  background: #0b0b0c;
+  scroll-snap-type: y mandatory;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.test {
+    scroll-behavior: smooth;
+  }
+}
+
+body.test {
+  display: block;
+  place-items: normal;
+  min-height: 0;
+  padding: 0;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  color: var(--text);
+}
+
+/* Home keeps the site background */
+.section-home {
+  background: #000 url("../../assets/images/background.png") center / cover no-repeat;
+}
+
+/* The others: one flat colour and a centred title */
+.section-product {
+  background: #1b2a41;
+}
+
+.section-pricing {
+  background: #2c3a2e;
+}
+
+.section-about {
+  background: #402c2c;
+}
+
+.section-contact {
+  background: #2b2842;
+}
+
+.section-legal {
+  background: #232323;
+}
+
+.section-title {
+  margin: 0;
+  padding: 0 24px;
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ---------- Dock ---------- */
+
+.social[aria-current="location"] {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Section change: circular reveal from the bottom centre ---------- */
+
+/* JS adds this when the reveal is available; sections then change only through it. */
+html.test.nav-lock {
+  overflow: hidden;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}

@@ -5,7 +5,7 @@
 // neighbours are pushed apart and the bar widens, and each width is driven
 // by a spring so the motion stays smooth.
 (() => {
-  const nav = document.querySelector(".page nav");
+  const nav = document.querySelector(".dock");
   if (!nav) return;
 
   const mouseOnly = window.matchMedia("(hover: hover)");
@@ -160,4 +160,32 @@
   const pad = (n) => String(n).padStart(2, "0");
   el.dateTime = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
   el.textContent = [now.getDate(), now.getMonth() + 1, now.getFullYear()].map(roman).join(" · ");
+})();
+
+// The empty "+" project card opens a toast at the bottom right.
+(() => {
+  const trigger = document.querySelector(".project-empty");
+  const toast = document.getElementById("toast");
+  if (!trigger || !toast) return;
+
+  const text = toast.querySelector(".toast-text");
+  const MESSAGE = "Thanks for clicking! Now follow me on my social media.";
+  const VISIBLE_MS = 4500;
+  let timer = 0;
+
+  const hide = () => {
+    toast.classList.remove("is-visible");
+    clearTimeout(timer);
+  };
+
+  trigger.addEventListener("click", () => {
+    text.textContent = MESSAGE;
+    toast.classList.add("is-visible");
+    clearTimeout(timer);
+    timer = setTimeout(hide, VISIBLE_MS);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hide();
+  });
 })();
